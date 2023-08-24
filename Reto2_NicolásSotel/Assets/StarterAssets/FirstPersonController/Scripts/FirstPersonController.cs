@@ -71,7 +71,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
-
+		int contador; 
 		private const float _threshold = 0.01f;
 
 		private bool IsCurrentDeviceMouse
@@ -86,6 +86,10 @@ namespace StarterAssets
 			}
 		}
 
+	
+
+	 
+
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -93,21 +97,8 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			contador = 0; 
 		}
-
-		private void OnTriggerEnter(Collider other)
-		{
-
-			if (other.gameObject.tag == ("Trash"))
-			{
-
-				Destroy(gameObject);
-			}
-
-
-		}
-
-
 
 
 		private void Start()

@@ -4,26 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Puntaje : MonoBehaviour
 {
-    private float puntos;
-    private TextMeshProUGUI textMesh;
-
-    private void Start()
-    {
-        textMesh = GetComponent<TextMeshProUGUI>();
-        textMesh.text = puntos.ToString("0");
-    }
-    private void Update()
-    {
-
-       
-
-
-
-    }
-
-    public void SumarPuntos(float puntosEntrada)
-    {
-        puntos += puntosEntrada;
-    }
+    public int puntos;
+   
 
 }

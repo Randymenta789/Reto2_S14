@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ItemDestroyer : MonoBehaviour
 {
-    [SerializeField] private float cantidadPuntos;
-    [SerializeField] private Puntaje puntaje;
+   
+    public GameObject ObjPuntos; 
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == ("Player"))
+        if (collision.tag == ("Player"))
         {
-            puntaje.SumarPuntos(cantidadPuntos);
+            ObjPuntos.GetComponent<PuntosIU>().puntos -= 1;
             Destroy(gameObject);
         }
 

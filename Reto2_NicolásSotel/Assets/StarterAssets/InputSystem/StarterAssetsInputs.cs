@@ -20,8 +20,47 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		public float interactionDistance = 3f;
+		public LayerMask interactableLayer; // Define la capa de los objetos interactuables
+		public InputAction interactAction; // Referencia a la acción de interacción del Input System
+
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+
+
+
+
+		private void OnEnable()
+		{
+			interactAction.Enable();
+		}
+
+		private void OnDisable()
+		{
+			interactAction.Disable();
+		}
+
+		private void Update()
+		{
+			if (interactAction.triggered)
+			{
+				TryInteract();
+			}
+		}
+
+		private void TryInteract()
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, interactableLayer))
+			{
+				Interactable interactable = hit.collider.GetComponent<Interactable>();
+				if (interactable != null)
+				{
+					interactable.Interact();
+				}
+			}
+		}
+	
+	public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
 		}
@@ -77,4 +116,6 @@ namespace StarterAssets
 		}
 	}
 	
+	
+
 }

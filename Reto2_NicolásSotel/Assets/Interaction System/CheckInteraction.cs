@@ -119,12 +119,9 @@ public class CheckInteraction : MonoBehaviour
             */
             #endregion
 
-            ui.showMessage(currentReceiver.GetInteractionMessage());
+            
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                currentReceiver.Activate();
-            }
+            
 
         }
 
