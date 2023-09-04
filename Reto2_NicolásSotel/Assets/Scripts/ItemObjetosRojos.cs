@@ -11,7 +11,7 @@ public class ItemObjetosRojos : MonoBehaviour
         if (collision.tag == ("Player"))
         {
             ObjPuntosNegativos.GetComponent<PuntosNegativos>().puntos -= 1;
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
 
     }
